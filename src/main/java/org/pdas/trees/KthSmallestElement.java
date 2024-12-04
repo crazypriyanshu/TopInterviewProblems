@@ -7,5 +7,5 @@ public class KthSmallestElement {
     // STep 1: get the root as current index
     // Step 2: find out whether the left child is null
 
-    public static void morris()
+//    public static void morris()
 }

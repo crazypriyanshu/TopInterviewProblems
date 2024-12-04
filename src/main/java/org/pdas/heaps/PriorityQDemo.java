@@ -20,5 +20,6 @@ public class PriorityQDemo {
 
         numbers.offer(8);
         System.out.println(numbers);
+
     }
 }
