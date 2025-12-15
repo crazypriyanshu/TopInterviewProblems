@@ -16,12 +16,6 @@ public class PrintAllDigits {
             System.out.println("");
             return;
         }
-//        arr[index] = 1;
-//        printAllDigits(arr, index+1, n);
-//        arr[index] = 2;
-//        printAllDigits(arr, index+1, n);
-//        arr[index] = 3;
-//        printAllDigits(arr, index+1, n);
         for (int i = 0; i < 3; i++) {
             arr[i] = i;
             printAllDigits(arr, index+1, n);

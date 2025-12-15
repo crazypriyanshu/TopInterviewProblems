@@ -44,7 +44,7 @@ public class HashMapDemo {
         System.out.println(map);
         map.putIfAbsent(22, "Mala");
         System.out.println(map);
-        map.remove(3);
+        map.remove(2);
         System.out.println(map);
 
     }

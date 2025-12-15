@@ -1,0 +1,14 @@
+package org.pdas.LLD.ElevatorSystem.enums;
+
+public enum FLOOR_NUMBER {
+    FLOOR_NUMBER_1,
+    FLOOR_NUMBER_2,
+    FLOOR_NUMBER_3,
+    FLOOR_NUMBER_4,
+    FLOOR_NUMBER_5,
+    FLOOR_NUMBER_6,
+    FLOOR_NUMBER_7,
+    FLOOR_NUMBER_8,
+    FLOOR_NUMBER_9,
+    FLOOR_NUMBER_10
+}
