@@ -20,7 +20,7 @@ public class UseCase1 {
             if (!set.contains(num-1)){
                 int currNum = 0;
                 int currLength = 0;
-                while (set.contains(num+1)){
+                while (!set.contains(num+1)){
                     currNum += 1;
                     currLength += 1;
                 }
@@ -32,6 +32,8 @@ public class UseCase1 {
     }
 
     public static void main(String[] args) {
+        int[] arr = {10, 20, 3, 4, 5, 6, 12};
+        System.out.println(findLengthOfLongestConsecutiveSubArray(arr));
 
     }
 }
