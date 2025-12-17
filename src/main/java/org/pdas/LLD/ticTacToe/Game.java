@@ -1,11 +1,15 @@
 package org.pdas.LLD.ticTacToe;
 
+import org.pdas.LLD.ticTacToe.Exceptions.InvalidCellException;
 import org.pdas.LLD.ticTacToe.interfaces.*;
 import org.pdas.LLD.ticTacToe.winningStratergies.*;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 public class Game extends GameSubject{
+    private final String gameId;
     private final Board board;
     private final Player player1;
     private final Player player2;
@@ -17,7 +21,9 @@ public class Game extends GameSubject{
     private GameState state;
     private final List<WinningStrategy> winningStrategies;
 
-    public Game(int size, Player player1, Player player2){
+    // Use of a private constructor to enforce use of static Factory/Builder
+    private Game(int size, Player player1, Player player2, List<WinningStrategy> strategies){
+        this.gameId = UUID.randomUUID().toString();
         this.size = size;
         this.board = new Board(size);
         this.player1 = player1;
@@ -25,11 +31,33 @@ public class Game extends GameSubject{
         this.currentPlayer = player1;
         this.state = new InProgressState();
         this.status = GameStatus.IN_PROGRESS;
-        this.winningStrategies = List.of(
-                new LockRowWinningStrategy(),
-                new LockColumnWinningStrategy(),
-                new LockDiognalWinningStrategy()
-        );
+        this.winningStrategies = strategies;
+
+    }
+
+    /*
+    * create method is used to do a fail fast and a cleaner approach to create valid games
+    * */
+    public static Game create(int size, Player player1, Player player2, List<WinningStrategy> strategies){
+        // Preconditions :
+        Objects.requireNonNull(player1, "Player 1 can't be null");
+        Objects.requireNonNull(player2, "Player 2 can't be null");
+
+
+        if (player1.getSymbol() == player2.getSymbol()){
+            System.out.println("Both player symbols found to be same");
+            throw new IllegalArgumentException("Player symbols needs to be different");
+        }
+
+        if (size < 3){
+            System.out.println("Minimum size to play this game is 3*3, hence size has to be more than 3");
+        }
+
+        List<WinningStrategy> actualStrategiesList = (strategies == null || strategies.isEmpty())
+                ? List.of(new LockRowWinningStrategy(), new LockColumnWinningStrategy(), new LockDiognalWinningStrategy())
+                : strategies;
+
+        return new Game(size, player1, player2, actualStrategiesList);
 
     }
 
@@ -48,6 +76,19 @@ public class Game extends GameSubject{
 
     public void switchPlayer(){
         this.currentPlayer = (currentPlayer == player1) ? player2 : player1;
+    }
+
+    public static void resetGame(Game game){
+        Player player = new Player("SYSTEM", Symbol.EMPTY);
+        int size = game.getSize();
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                game.getBoard().getCell(row, col).setSymbol(Symbol.EMPTY, player);
+            }
+        }
+        System.out.println("Hard reset done after game status : "+ game.getStatus() + " state of game : "+ game.getState());
+        game.setStatus(GameStatus.IN_PROGRESS);
+        game.setState(new InProgressState());
     }
 
     public Board getBoard() {
@@ -105,10 +146,15 @@ public class Game extends GameSubject{
         return player1;
     }
 
+    public String getGameId() {
+        return gameId;
+    }
+
     @Override
     public String toString() {
         return "Game{" +
-                "board=" + board +
+                "gameId='" + gameId + '\'' +
+                ", board=" + board +
                 ", player1=" + player1 +
                 ", player2=" + player2 +
                 ", size=" + size +

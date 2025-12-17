@@ -39,6 +39,7 @@ public class InProgressState implements GameState {
         game.setStatus(GameStatus.DRAW);
         game.setState(new DrawState());
         System.out.println("Game is a draw, no player gets any point");
+        Game.resetGame(game);
     }
 
     private void handleWin(Game game, Player player){
@@ -47,5 +48,6 @@ public class InProgressState implements GameState {
         game.setWinner(player);
         game.setState(new WinnerState());
         System.out.println("Player : "+ player.getName()+ " with symbol "+ player.getSymbol()+ " wins...");
+        Game.resetGame(game);
     }
 }
