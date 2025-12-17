@@ -37,18 +37,19 @@ public class Board {
         return true;
     }
 
-    public boolean placeSymbol(int row, int col, Symbol symbol){
+    public boolean placeSymbol(int row, int col, Player player){
         // check the values
         if (row < 0 || row >= size || col < 0 || col >= size){
             throw  new InvalidMoveException("Moves are going beyond boundaries");
         }
 
         // if you already have a symbol there
-//        if (board[row][col].getSymbol() != Symbol.EMPTY){
-//            throw new InvalidMoveException("Symbol is already present in this cell");
-//        }
+        if (board[row][col].getSymbol() != Symbol.EMPTY){
+            System.out.println("This is not a valid move, as this cell is already filled with "+board[row][col].getSymbol());
+            throw new InvalidMoveException("Symbol is already present in this cell");
+        }
 
-        board[row][col].setSymbol(symbol);
+        board[row][col].setSymbol(player.getSymbol(), player);
         moves_count++;
         return true;
     }
@@ -61,16 +62,17 @@ public class Board {
     }
 
     public void printBoard(){
-        System.out.println("--------------------");
+        System.out.println("------------");
         for (int row = 0; row < size; row++) {
             System.out.print("| ");
             for (int col = 0; col < size; col++) {
                 Symbol symbol = board[row][col].getSymbol();
                 System.out.print(symbol.getChar()+" | ");
             }
-            System.out.println("----------------");
+            System.out.println("");
 
         }
+        System.out.println("------------");
     }
 
     public int getMoves_count() {

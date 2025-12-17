@@ -2,7 +2,6 @@ package org.pdas.LLD.ticTacToe;
 
 import org.pdas.LLD.ticTacToe.interfaces.GameObserver;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

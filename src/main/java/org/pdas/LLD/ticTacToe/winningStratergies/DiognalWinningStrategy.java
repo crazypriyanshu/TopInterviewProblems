@@ -1,9 +1,9 @@
-package org.pdas.LLD.ticTacToe.interfaces;
+package org.pdas.LLD.ticTacToe.winningStratergies;
 
 import org.pdas.LLD.ticTacToe.Board;
 import org.pdas.LLD.ticTacToe.Player;
 
-public class DiognalWinningStrategy implements WinningStrategy{
+public class DiognalWinningStrategy implements WinningStrategy {
     @Override
     public boolean checkWinner(Board board, Player player) {
         boolean mainDiagonal = true;

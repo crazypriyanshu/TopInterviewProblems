@@ -1,6 +1,7 @@
 package org.pdas.LLD.ticTacToe;
 
 import org.pdas.LLD.ticTacToe.interfaces.*;
+import org.pdas.LLD.ticTacToe.winningStratergies.*;
 
 import java.util.List;
 
@@ -25,9 +26,9 @@ public class Game extends GameSubject{
         this.state = new InProgressState();
         this.status = GameStatus.IN_PROGRESS;
         this.winningStrategies = List.of(
-                new RowWinningStrategy(),
-                new ColumnWinningStrategy(),
-                new DiognalWinningStrategy()
+                new LockRowWinningStrategy(),
+                new LockColumnWinningStrategy(),
+                new LockDiognalWinningStrategy()
         );
 
     }

@@ -1,9 +1,9 @@
-package org.pdas.LLD.ticTacToe.interfaces;
+package org.pdas.LLD.ticTacToe.winningStratergies;
 
 import org.pdas.LLD.ticTacToe.Board;
 import org.pdas.LLD.ticTacToe.Player;
 
-public class ColumnWinningStrategy implements WinningStrategy{
+public class ColumnWinningStrategy implements WinningStrategy {
 
 
     @Override

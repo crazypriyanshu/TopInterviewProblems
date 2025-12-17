@@ -5,5 +5,11 @@ public enum GameStatus {
     WINNER_X,
     WINNER_O,
     DRAW,
-    SUSPENDED
+    SUSPENDED;
+
+    public static GameStatus fromSymbol(Symbol symbol){
+        return (symbol == Symbol.X) ? WINNER_X: WINNER_O;
+    }
+
+
 }
