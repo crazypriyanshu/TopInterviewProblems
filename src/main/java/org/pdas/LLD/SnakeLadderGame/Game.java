@@ -20,6 +20,7 @@ public class Game {
     }
 
     public void takeTurn(Player player){
+        // Step 1 : Roll the dice
         int roll = dice.roll();
         System.out.println(player.getName()+ " rolled dice and got : "+roll);
         int currPosition = player.getPosition();
@@ -42,8 +43,10 @@ public class Game {
             System.out.println("Woow! Found a ladder and player : "+player.getName()+ " moved from "+nextPosition+" to final Position "+finalPosition);
         } else if (finalPosition < nextPosition) {
             System.out.println("Oh No! Found a snake and player:  "+ player.getName()+ " moved from "+ nextPosition+ " to final position "+finalPosition);
+            player.setPosition(finalPosition);
         } else {
             System.out.println("Player : "+ player.getName()+ " moved from "+ currPosition+ " to finalPosition: "+ finalPosition);
+            player.setPosition(finalPosition);
         }
         if (roll == 6){
             System.out.println("Player got a 6, deserves another chance");
@@ -59,7 +62,7 @@ public class Game {
         this.gameStatus = GameStatus.NOT_STARTED;
     }
 
-    public void play(){
+    public void play() throws InterruptedException {
         if (playerQueue.size() <= 2){
             System.out.println("Can't start a game , at least 2 players are required");
         }
@@ -71,12 +74,13 @@ public class Game {
 
             // If the game is not finished and the player didn't roll a 6, add them back to the queue
             if (gameStatus == GameStatus.RUNNING){
+                Thread.sleep(1000);
                 playerQueue.add(currentPlayer);
             }
 
-            System.out.println("--- Game finished ---");
+            System.out.println("--- Round finished ---");
             if (winner != null){
-                System.out.println(" Winner of teh game is : "+ winner.getName());
+                System.out.println(" @@@@@@@ WOOOOHOOOOOOO!!!! @@@@@@@ Winner of teh game is : "+ winner.getName());
             }
         }
     }

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Client {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         List<BoardEntity> boardEntities = List.of(
                 new Snake(17, 7), new Snake(54, 34),
                 new Snake(62, 19), new Snake(98, 79),
