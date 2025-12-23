@@ -1,4 +1,4 @@
-package org.pdas.designPatterns.Behavioral.Momento.mementoEg;
+package org.pdas.designPatterns.Behavioral.Memento.mementoEg;
 
 import java.util.*;
 // Caretaker class - this knows nothing about the Document fields

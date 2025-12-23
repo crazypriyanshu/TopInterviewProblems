@@ -1,4 +1,4 @@
-package org.pdas.designPatterns.Behavioral.Momento.mementoEg;
+package org.pdas.designPatterns.Behavioral.Memento.mementoEg;
 // Originator class
 public class Document {
     private String content;

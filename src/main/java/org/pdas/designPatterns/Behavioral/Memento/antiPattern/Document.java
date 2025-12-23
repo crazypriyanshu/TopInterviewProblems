@@ -1,6 +1,4 @@
-package org.pdas.designPatterns.Behavioral.Momento.antiPattern;
-
-import lombok.Data;
+package org.pdas.designPatterns.Behavioral.Memento.antiPattern;
 
 // The Originator
 

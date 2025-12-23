@@ -1,4 +1,4 @@
-package org.pdas.designPatterns.Behavioral.Momento.antiPattern;
+package org.pdas.designPatterns.Behavioral.Memento.antiPattern;
 
 import java.util.HashMap;
 import java.util.Map;

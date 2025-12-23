@@ -1,4 +1,4 @@
-package org.pdas.designPatterns.Behavioral.Momento.antiPattern;
+package org.pdas.designPatterns.Behavioral.Memento.antiPattern;
 
 public class Client {
     public static void main(String[] args) {

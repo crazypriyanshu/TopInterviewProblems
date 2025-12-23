@@ -1,6 +1,4 @@
-package org.pdas.designPatterns.Behavioral.Momento.mementoEg;
-
-import javax.print.Doc;
+package org.pdas.designPatterns.Behavioral.Memento.mementoEg;
 
 public class Client {
     public static void main(String[] args) {
