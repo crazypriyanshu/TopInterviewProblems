@@ -1,3 +1,34 @@
+## Theoretical Foundation:
+The state design pattern is a behavioral design pattern that implements **Finite State Machine (FSM)** as a collection of objects.
+It allows an object (the **context**) to alter its behaviour when the internal state changes, 
+effectively giving **_a way that object changes its class at runtime_**.
+
+### Principles Addressed: 
+1. OCP - Add new states without modifying existing context or state classes
+2. SRP - Each state class handles its logic specific to that state
+3. Elimination of "State" pollution - Logic of StateA never leaks into execution block logic of StateB
+
+
+## Anatomy of the pattern:
+1. Context : The interface for outside world. This maintains a reference to `ConcreteState` instance that represents the current state
+2. State Interface: Defines a common interface for all the `ConcreteState` . encapsulating the behavior of particular state of Context
+3. Concrete State : each subclass implement the behavior associated with the state of context
+
+
+## Common Use cases: 
+1. Workflow Engines: Document approval Workflows (Draft -> Review -> InProgress -> Completed)
+2. Protocol stacks: TCP connection states (LISTEN, ESTABLISHED, CLOSED)
+3. Games: Character behaviors - AttackMode, FleeMode, 
+4. UI Components: Complex forms of buttons(Enables, Disabled, Loading, Error)
+
+### The state transition table:
+
+![img_1.png](img_1.png)
+
+
+
+
+
 ## State Design Pattern
 
 State design pattern is a behavioral design pattern which lets the object change its behavior when its internal state changes
