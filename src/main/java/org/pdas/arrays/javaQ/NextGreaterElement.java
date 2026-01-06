@@ -1,4 +1,4 @@
-package org.pdas.arrays;
+package org.pdas.arrays.javaQ;
 
 import java.util.Stack;
 

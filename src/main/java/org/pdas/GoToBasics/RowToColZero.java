@@ -1,7 +1,5 @@
 package org.pdas.GoToBasics;
 
-import org.pdas.arrays.A;
-
 import java.util.Arrays;
 
 public class RowToColZero {

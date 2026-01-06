@@ -1,4 +1,4 @@
-package org.pdas.arrays;
+package org.pdas.arrays.javaQ;
 
 public class BracketCharacterReplacer {
     public static String replaceCharacterInBracket(String input, char targetCharacter, char replacingCharacter){

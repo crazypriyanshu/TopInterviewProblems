@@ -1,4 +1,4 @@
-package org.pdas.arrays;
+package org.pdas.arrays.javaQ;
 
 public interface A {
     public void check();

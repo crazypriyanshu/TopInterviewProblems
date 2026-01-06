@@ -1,9 +1,8 @@
-package org.pdas.arrays;
+package org.pdas.arrays.javaQ;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class MostFrequentBElements {
     public static ArrayList<Integer> findTopBElements(int[] A, int B){

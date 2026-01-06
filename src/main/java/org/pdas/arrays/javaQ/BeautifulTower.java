@@ -1,8 +1,6 @@
-package org.pdas.arrays;
+package org.pdas.arrays.javaQ;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class BeautifulTower {
     // you are given array A, representing the number of bricks in n consecutive towers.
