@@ -69,13 +69,13 @@ public class DiameterOfTree {
     }
 
     public static void main(String[] args) {
-        Tree node = new Tree(10);
-        node.left = new Tree(9);
-        node.right = new Tree(11);
-        node.left.left = new Tree(8);
-        node.left.right = new Tree(9);
-        node.left.right.left = new Tree(10);
-        node.left.right.left.right = new Tree(12);
+        Tree node = new Tree(19);
+        node.left = new Tree(13);
+        node.right = new Tree(21);
+//        node.left.left = new Tree(7);
+//        node.left.right = new Tree(5);
+//        node.left.right.left = new Tree(3);
+//        node.left.right.left.right = new Tree(1);
 //         System.out.println(calculateDiameter(node));
         System.out.println(calculateDiameterBfs(node));
     }
