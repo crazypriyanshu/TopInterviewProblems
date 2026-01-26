@@ -1,5 +1,6 @@
 package org.pdas.streams;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +69,19 @@ public class Level3 {
         System.out.println();
         nums.stream().sorted(Comparator.reverseOrder()).skip(2).forEach(System.out::println);
 
+
+        // 16 Word freq problem
+        String jav = "Java is great for all of us and needs attention java java";
+        var str = Arrays.stream(jav.split("\\s+")).map(String::toLowerCase).filter(s -> !s.isEmpty())
+                .collect(Collectors.toMap(
+                        word -> word,
+                        String::length,
+                        (existing, replacement) -> replacement
+                ));
+        var so = Arrays.stream(jav.split(" ")).filter(word -> word != null).collect(Collectors.toMap(Function.identity(), String::length, (exits, replace) -> exits));
+        var sim = Arrays.stream(jav.split(" ")).max(Comparator.comparingInt(String::length)).orElse("None");
+
+        System.out.println(sim);
 
 
     }

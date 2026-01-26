@@ -6,7 +6,8 @@ public class RedState implements SignalState {
     @Override
     public void handle(TrafficLight context) {
         context.setCurrentColor(LightColor.RED);
-        // Red is a stable state, it transitions to green only when IntersectionController asks it, so next state is self
+        // Red is a stable state, it transitions to green only when IntersectionController asks it,
+        // so next state is self
         context.setNextState(new RedState());
 
     }
