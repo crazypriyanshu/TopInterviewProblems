@@ -23,6 +23,7 @@ public class Combinations1 {
 
         for (int i = start; i < arr.length; i++) {
             path.add(arr[i]);
+
             backtrack(i, arr, target, sum+arr[i], path, res); // reuse allowed
             path.remove(path.size()-1);
 

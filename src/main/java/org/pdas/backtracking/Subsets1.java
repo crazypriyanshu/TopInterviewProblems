@@ -44,7 +44,7 @@ public class Subsets1 {
         // Given an array of distinct integers, return all possible subsets (the power set).
         int[] arr = {1, 2};
         // o/p - [[], [1], [2], [1, 2 ]]
-//        subsets(arr).stream().forEach(System.out::println);
+        subsets(arr).stream().forEach(System.out::println);
         String[] strings = {"ab", "cd", "ef"};
         subsetsOfString(strings).stream().forEach(System.out::println);
     }
