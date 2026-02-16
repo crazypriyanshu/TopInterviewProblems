@@ -2,6 +2,7 @@ package org.pdas.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Combinations2 {
@@ -22,6 +23,7 @@ public class Combinations2 {
             res.add(new ArrayList<>(path));
             return;
         }
+
         if (sum > target){
             return;
         }
