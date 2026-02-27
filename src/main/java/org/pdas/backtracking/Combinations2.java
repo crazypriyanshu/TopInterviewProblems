@@ -1,9 +1,6 @@
 package org.pdas.backtracking;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class Combinations2 {
     // problem : Given a collection of candidate numbers (may contain duplicates) and a target number,
@@ -46,5 +43,35 @@ public class Combinations2 {
         int[] numbers = {10,1,2,7,6,1,5};
         int target = 8;
         combinations2(numbers, target).stream().forEach(System.out::println);
+    }
+
+    public ArrayList<ArrayList<Integer>> combinationSum(ArrayList<Integer> A, int B) {
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+        Collections.sort(A);
+        backstrack(A, B, res, new ArrayList<Integer>(), 0, 0);
+        return res;
+
+    }
+
+    private static void backstrack(ArrayList<Integer> A, int B, ArrayList<ArrayList<Integer>> result, ArrayList<Integer> path, int currSum, int start){
+        if (B == currSum){
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        if (currSum > B){
+            return;
+        }
+
+        for (int i = start; i < A.size(); i++) {
+            int num = A.get(i);
+            if (currSum +num > B) break;
+            if (i > start && A.get(i).equals(A.get(i-1))) continue;
+            path.add(A.get(i));
+            backstrack(A, B, result, path, currSum+A.get(i), i);
+            path.remove(path.size()-1);
+
+        }
+
+
     }
 }

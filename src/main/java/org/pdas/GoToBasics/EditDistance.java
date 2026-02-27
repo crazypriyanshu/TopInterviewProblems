@@ -20,7 +20,7 @@ public class EditDistance {
 
         for (int row = 1; row <= s1Length; row++) {
             for (int col = 1; col <= s2Length; col++) {
-                if (s1.charAt(row) == s2.charAt(col)){
+                if (s1.charAt(row-1) == s2.charAt(col-1)){
                     dp[row][col] = dp[row-1][col-1];
                 } else {
                     int insert = dp[row][col-1];
@@ -35,9 +35,10 @@ public class EditDistance {
     }
 
     public static void main(String[] args) {
-        String s1 = "BIT";
-        String s2 = "DOT";
+        String s1 = "CODA";
+        String s2 = "CODE";
+        System.out.println(s1.substring(2).equalsIgnoreCase(s1));
 
-        System.out.println(findMinCost(s1, s2));
+        //System.out.println(findMinCost(s1, s2));
     }
 }

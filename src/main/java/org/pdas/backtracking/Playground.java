@@ -1,6 +1,7 @@
 package org.pdas.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Playground {
@@ -30,8 +31,13 @@ public class Playground {
     public static void main(String[] args) {
         // you have number of choices to make a number is: 1, 3, 7 - how many numbers you can create?
         // 137, 317, 713, 731,
-        int[] choices = {1, 3, 7};
-        int numberNeeded = 3;
-        giveSomeIntegers(choices, numberNeeded).stream().forEach(System.out::println);
+//        int[] choices = {1, 3, 7};
+//        int numberNeeded = 3;
+//        giveSomeIntegers(choices, numberNeeded).stream().forEach(System.out::println);
+        int[][] mem = new int[2][4];
+        for (int i = 0; i < 2; i++) {
+            Arrays.fill(mem[i], -1);
+
+        }
     }
 }

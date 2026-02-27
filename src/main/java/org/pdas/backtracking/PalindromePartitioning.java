@@ -3,7 +3,7 @@ package org.pdas.backtracking;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PalindromePartitioning {
+public class    PalindromePartitioning {
     /*
     * Input: s = "aab"
     * Goal: Split the string into all possible parts where every part is a palindrome.
