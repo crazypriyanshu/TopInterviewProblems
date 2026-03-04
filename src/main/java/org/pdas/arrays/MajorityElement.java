@@ -23,11 +23,14 @@ public class MajorityElement {
         for (int i = 0; i < arr.length; i++) {
             if (count == 0){
                 candidate = arr[i];
+                System.out.print("candidate "+candidate);
                 count = 1;
             } else if (arr[i] == candidate) {
                 count++;
+                System.out.println(" :count: "+count);
             } else {
                 count--;
+                System.out.println("count: "+count);
             }
 
         }
@@ -44,8 +47,8 @@ public class MajorityElement {
     }
 
     public static void main(String[] args) {
-        int[] A = {3, 4, 3, 3, 1, 3, 4, 5, 7, 3, 1};
-        System.out.println(mooresVotingAlgorithm(A));
+        int[] A = {1, 1, 1, 1, 1, 3, 4, 5,1, 1, 2, 1, 1,1 ,1,2, 1, 1, 1, 1, 7, 3, 1, 4, 4, 5, 6, 2, 1, 33, 2, 5, 6, 7,1};
+        System.out.println("Ans " +mooresVotingAlgorithm(A));
 
 
     }
