@@ -1,25 +1,31 @@
 package org.pdas.Strings;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 // find the length of longest substring without repeating character
 public class LongestSubstringWithoutRepeatingCharacters {
     public static int lengthOfLongestSubstring(String s){
-        Set<Character> set = new HashSet<>();
-        int maxLength = 0, i =0, j =0;
-        while (i < s.length() && j < s.length()){
-            if (!set.contains(s.charAt(j))){
-                set.add(s.charAt(j++));
-                maxLength = Math.max(maxLength, j-i);
-            } else {
-                set.remove(s.charAt(i++));
+        char[] chars = s.toCharArray();
+        int left = 0;
+        int maxLen = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int right = 0; right < chars.length; right++) {
+            char currCharacter = chars[right];
+            if (map.containsKey(currCharacter)){
+                //
+                left = Math.max(left, map.get(currCharacter));
             }
+            maxLen = Math.max(maxLen, right-left+1);
+            map.put(currCharacter, right+1);
         }
-        return maxLength;
+        return maxLen;
+
     }
 
     public static void main(String[] args) {
-        String s = "spring";
+        String s = "pwwkew";
         System.out.println(lengthOfLongestSubstring(s));
     }
 }
