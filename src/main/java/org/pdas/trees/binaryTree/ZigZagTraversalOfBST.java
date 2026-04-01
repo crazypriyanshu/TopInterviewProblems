@@ -3,6 +3,7 @@ package org.pdas.trees.binaryTree;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.Stack;
 
 public class ZigZagTraversalOfBST {
     /*
@@ -16,6 +17,9 @@ public class ZigZagTraversalOfBST {
         Deque<TreeNode> dq = new ArrayDeque<>();
         // provides a way to use a data structure as both a stack (LIFO - Last-In, First-Out) and a queue (FIFO - First-In, First-Out), and it can efficiently insert and delete elements at both ends
         dq.add(A);
+        Stack<Integer> st = new Stack<>();
+
+
         int count = 0;
         // perform BFS
         while (!dq.isEmpty()){

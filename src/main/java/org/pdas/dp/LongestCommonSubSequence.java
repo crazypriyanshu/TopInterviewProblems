@@ -37,7 +37,7 @@ public class LongestCommonSubSequence {
                 char atS2 = s2.charAt(col-1);
                 if (atS1 == atS2){
                     dp[row][col] = 1 + dp[row-1][col-1];
-                    // we cant add StringBuilder as we are not yet decided, we will get every pair that maches
+                    // we cant add StringBuilder as we are not yet decided, we will get every pair that matches
                 } else {
                     dp[row][col] = Math.max(dp[row][col-1], dp[row-1][col]);
                 }
@@ -46,7 +46,7 @@ public class LongestCommonSubSequence {
         
         StringBuilder sb = new StringBuilder();
 
-        while (n > 0 && m > 0){
+        while (n >= 0 && m >= 0){
             if (s1.charAt(n-1) == s2.charAt(m-1)){
                 sb.append(s1.charAt(n-1));
                 n--;

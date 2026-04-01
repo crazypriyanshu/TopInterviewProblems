@@ -21,11 +21,23 @@ public class WaysToRollDice {
 
         }
         return dp[n];
+    }
 
+    private static int findWaysRecursively(int n){
+        if (n < 0) return 0;
+        if (n == 0) return 1;
 
+        return findWaysRecursively(n-1)
+                +findWaysRecursively(n-2)
+                +findWaysRecursively(n-3)
+                +findWaysRecursively(n-4)
+                +findWaysRecursively(n-5)
+                +findWaysRecursively(n-6);
     }
 
     public static void main(String[] args) {
-        System.out.println(findWays(16));
+
+        System.out.println(findWaysRecursively(12));
+        System.out.println(findWays(12));
     }
 }
