@@ -297,6 +297,18 @@ public class RaftNode implements RPCService {
         }
     }
 
+    public synchronized boolean propose(String command) {
+        if (state != RaftState.LEADER) {
+            return false;
+        }
+        log.add(new LogEntry(currentTerm, command));
+        return true;
+    }
+
+    public java.util.Map<String, String> getStateMachineData() {
+        return stateMachine.getState();
+    }
+
     public String getId() {
         return id;
     }

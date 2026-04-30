@@ -28,8 +28,23 @@ public class CodingMentor {
         return result;
     }
 
+    /**
+     * Calculates min number of steps taken to for n to reduce to zero
+     * if n is even : we can do n/2
+     * if n is odd : we can either add+1 or sub-1
+     * */
+    private static int findMinStepsToZero(int n){
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        if (n%2 == 0) return 1+findMinStepsToZero(n/2);
+        return Math.min(1+findMinStepsToZero(n-1), 1+findMinStepsToZero(n+1));
+
+    }
+
     public static void main(String[] args) {
         int[] A = {3, 4, 2};
         Arrays.stream(codingMentor(A)).forEach(System.out::println);
+
+        System.out.println(findMinStepsToZero(10));
     }
 }

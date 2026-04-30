@@ -53,8 +53,8 @@ public class RaftNode implements RaftService{
         if (electionTimer != null){
             electionTimer.cancel(false);
         }
-        long timeout = 150 + random.nextInt(150);
-        electionTimer = scheduler.schedule(this::startElection, timeout, TimeUnit.SECONDS);
+        long timeout = 1500 + random.nextInt(150);
+        electionTimer = scheduler.schedule(this::startElection, timeout, TimeUnit.MILLISECONDS);
     }
 
     private synchronized void startElection(){
@@ -174,7 +174,20 @@ public class RaftNode implements RaftService{
     }
 
     private synchronized void updateCommitIndex() {
-
+        // Leaser looks for N such that N > commitIndex
+        // majority of matchIndex[i] >= N and logs[N].term == currentTerm
+        for (long n = logs.size()-1; n > commitIndex ; n++) {
+            if (logs.get((int) n).term() == currentTerm){
+                int count = 1; // count self
+                for (long match: matchIndex.values()){
+                    if (match >= n) count++;
+                }
+                if (count > (((peerNodes.size())+1)/2) +1);
+                    commitIndex = n;
+                    applyLogEntries();
+                    break;
+            }
+        }
     }
 
     @Override
@@ -293,5 +306,17 @@ public class RaftNode implements RaftService{
 
     public RaftState getState() {
         return state;
+    }
+
+    public Map<String, String> getStateMachineData() {
+        return stateMachine.getState();
+    }
+
+    public synchronized boolean propose(String command){
+        if (state != RaftState.LEADER){
+            return false;
+        }
+        logs.add(new LogEntry(currentTerm, command));
+        return true;
     }
 }

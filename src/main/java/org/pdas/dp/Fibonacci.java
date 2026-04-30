@@ -23,5 +23,18 @@ public class Fibonacci {
         long time = System.nanoTime();
         int res = fibonacci(n, dp);
         System.out.println("Fibonacci :  "+ res +" :"+(System.nanoTime()-time)/1000+ " micro sec");
+
+        Arrays.stream(fibonacciDp(20)).forEach(System.out::println);
+    }
+
+    // print fibonacci series till given number
+    private static int[] fibonacciDp(int n){
+        int[] dp = new int[n+1];
+        dp[0] = 0;
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i-1]+dp[i-2];
+        }
+        return dp;
     }
 }

@@ -31,13 +31,34 @@ public class RaftSimulation {
         System.out.println("Raft Cluster started with " + nodeCount + " nodes.");
         
         // Let the election run for a bit
-        Thread.sleep(2000);
+        Thread.sleep(3000);
 
-        // Check if we have a leader
+        RaftNode leader = null;
         for (RaftNode node : nodes) {
             System.out.println("Node " + node.getId() + " is in state: " + node.getState());
+            if (node.getState() == RaftState.LEADER) {
+                leader = node;
+            }
         }
 
+        if (leader != null) {
+            System.out.println("\n--- Proposing commands to Leader: " + leader.getId() + " ---");
+            leader.propose("SET color blue");
+            leader.propose("SET mode experimental");
+            leader.propose("SET version 2.0");
+
+            // Wait for replication and commitment (heartbeats happen every 50ms)
+            Thread.sleep(2000);
+
+            System.out.println("\n--- Final State Machine Consistency Check ---");
+            for (RaftNode node : nodes) {
+                System.out.println("Node " + node.getId() + " data: " + node.getStateMachineData());
+            }
+        } else {
+            System.out.println("No leader was elected in time.");
+        }
+
+        System.out.println("\nSimulation finished. Stopping...");
         System.exit(0);
     }
 }
