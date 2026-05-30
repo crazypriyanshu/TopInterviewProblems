@@ -61,7 +61,7 @@ story = []
 story.append(Paragraph("Priyanshu Das", styles['NameTitle']))
 header_sub = """
 <para align="center">
-    <font size=11 color="#444444">Software Architect | Lead Software Engineer | 14+ Years Experience</font><br/>
+    <font size=11 color="#444444">Lead Software Engineer | 14+ Years Experience</font><br/>
     <font size=9>
         Hyderabad, India | priyanshu.das@live.com | 
         <a href="https://linkedin.com" color="blue">LinkedIn</a> | 
@@ -86,10 +86,10 @@ story.append(Paragraph(summary_text, styles['Txt']))
 story.append(Paragraph("Technical Skills", styles['SecHeader']))
 story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#1f4e79'), spaceAfter=6))
 skills_data = [
-    [Paragraph("<b>Languages & Runtime:</b> Java 21 (Virtual Threads, ZGC), Node.js, SQL, TypeScript", styles['Txt']),
+    [Paragraph("<b>Languages & Runtime:</b> Java 21 (Virtual Threads, ZGC), Node.js, SQL, TypeScript, GraphQL", styles['Txt']),
      Paragraph("<b>Cloud & DevOps:</b> Docker, Kubernetes, AWS, Jenkins, Terraform, ELK Stack", styles['Txt'])],
     [Paragraph("<b>Distributed Systems:</b> Kafka, Redis, Debezium, Event-Driven Architecture", styles['Txt']),
-     Paragraph("<b>Architecture:</b> Microservices, Outbox/CDC Patterns, Hexagonal Architecture", styles['Txt'])]
+     Paragraph("<b>Architecture & UI:</b> Microservices, Outbox/CDC Patterns, React, Hexagonal Architecture", styles['Txt'])]
 ]
 skills_table = Table(skills_data, colWidths=[3.5 * inch, 3.5 * inch])
 skills_table.setStyle(TableStyle([('VALIGN', (0, 0), (-1, -1), 'TOP')]))
@@ -118,8 +118,9 @@ story.append(Paragraph("""
 # Eze Software
 story.append(Paragraph("<b>EZE SOFTWARE</b> | Senior Software Engineer", styles['SubHeader']))
 story.append(Paragraph("""
-• <b>Data Orchestration:</b> Engineered Node.js ingestion services for multi-terabyte financial datasets, ensuring <b>zero data loss</b> during peak transformation windows.<br/>
-• <b>Efficiency Gains:</b> Built a Python/MongoDB automation framework that eliminated 20+ hours of manual reporting work per week for the operations team.
+• <b>Full-Stack Orchestration:</b> Designed and deployed scalable Node.js microservices integrated with React frontends and GraphQL APIs, optimizing financial data loading and reducing client-side payload sizes by 35%.<br/>
+• <b>Data Pipeline Engineering:</b> Built high-throughput Node.js ingestion services for multi-terabyte financial datasets, ensuring <b>zero data loss</b> during peak market transformation windows.<br/>
+• <b>Efficiency Gains:</b> Developed a Python/MongoDB automation framework that eliminated 20+ hours of manual reporting work per week for global operations teams.
 """, styles['Txt']))
 
 # Cognizant
