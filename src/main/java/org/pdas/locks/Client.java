@@ -9,7 +9,7 @@ public class Client {
         BoundedQueue<String> q = new BoundedQueue<>(10);
 
         // :lightbulb
-        // 1. Create a Thread Pool instead of loose raw threads.
+        // add 1. Create a Thread Pool instead of loose raw threads.
         // We allocate 6 worker threads total (matching your 1 producer + 5 background producers scenario)
         ExecutorService producerPool = Executors.newFixedThreadPool(6);
         ExecutorService consumerPool = Executors.newFixedThreadPool(6);
